@@ -22,7 +22,7 @@ class Asset{
 
 		    	$uri = str_replace(array($base_dir, $dir_path), "", $file->getRealPath());
 		    	$uri = str_replace(array ("//", "\\"), DIRECTORY_SEPARATOR, $uri);
-		    	$uri = ltrim($uri, DIRECTORY_SEPARATOR);
+		    	// $uri = ltrim($uri, DIRECTORY_SEPARATOR); //remove leading slash
 
 		    	$this->files[$uri] = $file; 
 		    }
