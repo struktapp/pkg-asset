@@ -32,8 +32,12 @@ class Asset extends AbstractMiddleware implements MiddlewareInterface{
 		if($this->finder->exists($uri)){
 
 			$contents = $this->finder->get($uri);
+			$fileinfo = $this->finder->getInfo($uri);
 
-			$headers = $response->headers->all();
+			if($fileinfo->getExtension() == "css")
+				$headers = array("Content-type"=>"text/css");
+			else
+				$headers = $response->headers->all();
 
 			return new Response($contents, 200, $headers);
 		}
