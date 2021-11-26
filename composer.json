@@ -9,7 +9,7 @@
     "license": "MIT",
     "autoload": {
         "psr-0": {
-            "Strukt\": "src/"
+            "Strukt\\": "src/"
         }
     },
     "authors": [
