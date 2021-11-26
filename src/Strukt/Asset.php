@@ -20,8 +20,8 @@ class Asset{
 
 		    if($file->isFile()){		    	
 
-		    	$dir_path = DIRECTORY_SEPARATOR.$dir_path;
 		    	$uri = str_replace(array($base_dir, $dir_path), "", $file->getRealPath());
+		    	$uri = str_replace(array ("//", "\\"), DIRECTORY_SEPARATOR, $uri);
 
 		    	$this->files[$uri] = $file; 
 		    }
@@ -46,6 +46,9 @@ class Asset{
 	 */
 	public function get($filepath){
 
-		return Fs::cat($this->get($filepath)->getRealPath());
+		if($this->exists($filepath))
+			return Fs::cat($this->files[$filepath]->getRealPath());
+
+		throw new \Exception(sprintf("Asset: File [%s] does not exist!", $filepath));		
 	}
 }
