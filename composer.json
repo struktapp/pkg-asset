@@ -8,8 +8,8 @@
     },
     "license": "MIT",
     "autoload": {
-        "psr-4": {
-            "Strukt\\Asset\\": "src/"
+        "psr-0": {
+            "Strukt\": "src/"
         }
     },
     "authors": [
