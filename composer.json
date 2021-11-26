@@ -3,7 +3,8 @@
     "description": "Simple Asset Finder",
     "type": "package",
     "require": {
-        "strukt/fs": "1.0.0"
+        "strukt/fs": "1.0.0",
+        "strukt/contract": "v1.0.0-alpha"
     },
     "license": "MIT",
     "autoload": {
