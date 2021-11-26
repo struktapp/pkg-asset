@@ -31,7 +31,7 @@ class Asset extends AbstractMiddleware implements MiddlewareInterface{
 
 		if($this->finder->exists($uri)){
 
-			$contents = $this->finder->getContents($uri);
+			$contents = $this->finder->get($uri);
 
 			$headers = $response->headers->all();
 
