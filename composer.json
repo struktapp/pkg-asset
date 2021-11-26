@@ -1,0 +1,21 @@
+{
+    "name": "strukt/asset",
+    "description": "Simple Asset Finder",
+    "type": "package",
+    "require": {
+        "strukt/fs": "1.0.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Strukt\\Asset\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "pitsolu",
+            "email": "pitsolu@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
