@@ -20,9 +20,7 @@ class Asset extends AbstractMiddleware implements MiddlewareInterface{
 		$root_dir = Env::get("root_dir");
 		$static_dir = Env::get("rel_static_dir");
 
-		$this->finder = new AssetFinder($root_dir, $static_dir);
-
-		$this->core()->set("assets", $this->finder);
+		$this->core()->set("assets", new AssetFinder($root_dir, $static_dir));
 	}
 
 	public function __invoke(Request $request, ResponseInterface $response, callable $next){
