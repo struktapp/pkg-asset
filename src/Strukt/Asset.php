@@ -52,4 +52,23 @@ class Asset{
 
 		throw new \Exception(sprintf("Asset: File [%s] does not exist!", $filepath));		
 	}
+
+	/**
+	 * list paths
+	 */
+	public function ls(string $pattern = null){
+
+		if(!is_null($pattern)){
+
+			$found = [];
+
+			foreach($this->files as $key=>$value)
+				if(preg_match(sprintf("/%s/", $pattern), $key))
+					$found[] = $key;
+
+			return $found;
+		}
+
+		return array_keys($this->files);
+	}
 }
