@@ -11,3 +11,10 @@ $loader->add('Strukt', __DIR__.'/package/src/');
 
 Strukt\Env::set("root_dir", __DIR__);
 Strukt\Env::set("rel_static_dir", "fixtures");
+
+$core = Strukt\Core\Registry::getSingleton();
+
+$assetProvider = new App\Provider\Asset();
+$assetProvider->register();
+
+// new App\Middleware\Asset();

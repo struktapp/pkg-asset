@@ -1,11 +1,10 @@
 <?php
 
-namespace Strukt\Middleware;
+namespace App\Middleware;
 
 use Strukt\Contract\ResponseInterface;
 use Strukt\Http\Response;
 use Strukt\Http\Request;
-use Strukt\Asset as AssetFinder;
 use Strukt\Core\Registry;
 use Strukt\Contract\MiddlewareInterface;
 use Strukt\Contract\AbstractMiddleware;
@@ -17,12 +16,7 @@ class Asset extends AbstractMiddleware implements MiddlewareInterface{
 
 	public function __construct(){
 
-		$root_dir = Env::get("root_dir");
-		$static_dir = Env::get("rel_static_dir");
-
-		$this->finder = new AssetFinder($root_dir, $static_dir);
-
-		$this->core()->set("assets", $this->finder);
+		$this->finder = $this->core()->get("app.asset");
 	}
 
 	public function __invoke(Request $request, ResponseInterface $response, callable $next){
