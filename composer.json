@@ -1,7 +1,7 @@
 {
-    "name": "strukt/asset",
+    "name": "strukt/pkg-asset",
     "description": "Simple Asset Finder",
-    "type": "package",
+    "type": "strukt-module",
     "require": {
         "strukt/fs": "1.0.0",
         "strukt/contract": "v1.0.0-alpha",
