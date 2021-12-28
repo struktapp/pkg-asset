@@ -12,6 +12,7 @@ class PkgAsset implements Pkg{
 
 		$this->manifest = array(
 
+			"cmd_name"=>"Asset",
 			"package"=>"pkg-asset",
 			"files"=>array(
 
@@ -21,9 +22,45 @@ class PkgAsset implements Pkg{
 		);
 	}
 
+	public function getSettings($type){
+
+		$settings = array(
+
+			"App:Cli"=>array(
+
+				"providers"=>array(
+
+					App\Provider\Asset::class
+				),
+				"middlewares"=>array(
+
+					App\Middleware\Asset::class
+				)
+			),
+			"App:Idx"=>array(
+
+				"providers"=>array(
+
+					App\Provider\Asset::class
+				),
+				"middlewares"=>array(
+
+					App\Middleware\Asset::class
+				)
+			)
+		);
+
+		return $settings[$type];
+	}
+
 	public function getName(){
 
 		return $this->manifest["package"];
+	}
+
+	public function getCmdName(){
+
+		return $this->manifest["cmd_name"];
 	}
 
 	public function getFiles(){
