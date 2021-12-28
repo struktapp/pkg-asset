@@ -50,8 +50,7 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 		$this->assertEquals($asset_ls, [
 
 	     	"/lib/App/Provider/Asset.php",
-	     	"/lib/App/Middleware/Asset.php",
-	     	"/src/Strukt/Asset.php"
+	     	"/lib/App/Middleware/Asset.php"
 	   	]);
 	}
 }
