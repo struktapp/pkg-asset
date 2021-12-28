@@ -30,22 +30,22 @@ class PkgAsset implements Pkg{
 
 				"providers"=>array(
 
-					App\Provider\Asset::class
+					\App\Provider\Asset::class
 				),
 				"middlewares"=>array(
 
-					App\Middleware\Asset::class
+					\App\Middleware\Asset::class
 				)
 			),
 			"App:Idx"=>array(
 
 				"providers"=>array(
 
-					App\Provider\Asset::class
+					\App\Provider\Asset::class
 				),
 				"middlewares"=>array(
 
-					App\Middleware\Asset::class
+					\App\Middleware\Asset::class
 				)
 			)
 		);
