@@ -16,8 +16,7 @@ class PkgAsset implements Pkg{
 			"files"=>array(
 
 				"lib/App/Provider/Asset.php",
-				"lib/App/Middleware/Asset.php",
-				"src/Strukt/Asset.php"
+				"lib/App/Middleware/Asset.php"
 			)
 		);
 	}
