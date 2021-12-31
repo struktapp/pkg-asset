@@ -5,7 +5,9 @@
     "require": {
         "strukt/fs": "1.0.0",
         "strukt/contract": "v1.0.0-alpha",
-        "gumlet/php-image-resize": "dev-master"
+        "gumlet/php-image-resize": "dev-master",
+        "erusev/parsedown": "^1.7",
+        "league/html-to-markdown": "^5.0"
     },
     "license": "MIT",
     "autoload": {
