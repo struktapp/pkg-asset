@@ -18,6 +18,7 @@ class PkgAsset implements Pkg{
 
 				"lib/App/Provider/Asset.php",
 				"lib/App/Middleware/Asset.php"
+				"lib/App/Command/Asset/MarkdownToHtml.php"
 			)
 		);
 	}
@@ -35,6 +36,10 @@ class PkgAsset implements Pkg{
 				"middlewares"=>array(
 
 					\App\Middleware\Asset::class
+				),
+				"commands"=>array(
+
+					\App\Command\Asset\MarkdownToHtml::class
 				)
 			),
 			"App:Idx"=>array(
