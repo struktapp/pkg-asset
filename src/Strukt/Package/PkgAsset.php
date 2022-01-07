@@ -17,7 +17,7 @@ class PkgAsset implements Pkg{
 			"files"=>array(
 
 				"lib/App/Provider/Asset.php",
-				"lib/App/Middleware/Asset.php"
+				"lib/App/Middleware/Asset.php",
 				"lib/App/Command/Asset/MarkdownToHtml.php"
 			)
 		);
