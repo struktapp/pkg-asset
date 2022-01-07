@@ -80,6 +80,6 @@ class PkgAsset implements Pkg{
 
 	public function isPublished(){
 
-		return class_exists(\Strukt\Asset::class);
+		return class_exists(\App\Command\Asset\MarkdownToHtml::class);
 	}
 }
