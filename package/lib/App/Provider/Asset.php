@@ -4,8 +4,8 @@ namespace App\Provider;
 
 use Strukt\Asset as AssetFinder;
 use Strukt\Event;
-use Strukt\Contract\AbstractProvider;
-use Strukt\Contract\ProviderInterface;
+use Strukt\Contract\Provider\AbstractProvider;
+use Strukt\Contract\Provider\ProviderInterface;
 use Strukt\Env;
 
 class Asset extends AbstractProvider implements ProviderInterface{ 
