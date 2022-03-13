@@ -2,14 +2,11 @@
 
 namespace App\Middleware;
 
-use Strukt\Contract\ResponseInterface;
-use Strukt\Contract\RequestInterface;
+use Strukt\Contract\Http\ResponseInterface;
+use Strukt\Contract\Http\RequestInterface;
 use Strukt\Http\Response\Plain as Response;
-use Strukt\Http\Request;
-use Strukt\Core\Registry;
 use Strukt\Contract\Middleware\MiddlewareInterface;
 use Strukt\Contract\Middleware\AbstractMiddleware;
-use Strukt\Env;
 
 class Asset extends AbstractMiddleware implements MiddlewareInterface{
 
