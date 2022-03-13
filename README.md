@@ -1,6 +1,18 @@
 Strukt Asset
 ===
 
+### Installation
+
+```sh
+composer require strukt/pkg-asset:v1.0.5-alpha
+```
+
+If need be you need to install the middlewares, providers and commands:
+
+```sh
+./console publish:package pkg-asset
+```
+
 ### Simple Asset Manager
 
 ```php
