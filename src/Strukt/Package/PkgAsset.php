@@ -82,4 +82,9 @@ class PkgAsset implements Pkg{
 
 		return class_exists(\App\Command\Asset\MarkdownToHtml::class);
 	}
+
+	public function getRequirements(){
+
+		return null;
+	}
 }
