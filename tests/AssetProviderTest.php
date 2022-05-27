@@ -26,8 +26,8 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 
 		$asset_ls = $core->get("app.asset")->ls();
 
-		$this->assertEquals($asset_ls, [
-
+		$ls = [
+			
 			"/errors/500.html",
 			"/errors/404.html",
 			"/errors/405.html",
@@ -36,7 +36,12 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 			"/static/images/logo.png",
 			"/static/css/style.css",
 			"/static/js/script.js"
-	   ]);
+	   ];
+
+	   sort($asset_ls);
+	   sort($ls);
+
+		$this->assertEquals($asset_ls, $ls);
 	}
 
 	public function testAssetProvider(){
