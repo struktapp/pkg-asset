@@ -13,7 +13,7 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 
 		$core = Registry::getSingleton();
 
-		if(!$core->exists("app")){
+		if(!$core->exists("strukt")){
 
 			$assetProvider = new AssetProvider();
 			$assetProvider->register();
@@ -24,7 +24,7 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 
 		$core = Registry::getSingleton();
 
-		$asset_ls = $core->get("app.asset")->ls();
+		$asset_ls = $core->get("strukt.asset")->ls();
 
 		$ls = [
 			
@@ -50,7 +50,7 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 
 		$core = Registry::getSingleton();
 
-		$asset_ls = $core->get("app.service.asset")->apply($rootDir, "package")->exec()->ls();
+		$asset_ls = $core->get("strukt.service.asset")->apply($rootDir, "package")->exec()->ls();
 
 		$this->assertEquals($asset_ls, [
 

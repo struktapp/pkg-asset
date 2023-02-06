@@ -8,13 +8,17 @@ use Strukt\Http\Response\Plain as Response;
 use Strukt\Contract\Middleware\MiddlewareInterface;
 use Strukt\Contract\Middleware\AbstractMiddleware;
 
+/**
+* @Name(asset)
+* @Inject(strukt.asset)
+*/
 class Asset extends AbstractMiddleware implements MiddlewareInterface{
 
 	private $finder;
 
 	public function __construct(){
 
-		$this->finder = $this->core()->get("app.asset");
+		$this->finder = $this->core()->get("strukt.asset");
 	}
 
 	public function __invoke(RequestInterface $request, 
