@@ -10,7 +10,7 @@ use Strukt\Contract\Middleware\AbstractMiddleware;
 
 /**
 * @Name(asset)
-* @Inject(strukt.asset)
+* @Requires(strukt.asset)
 */
 class Asset extends AbstractMiddleware implements MiddlewareInterface{
 
