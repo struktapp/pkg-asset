@@ -3,8 +3,8 @@
     "description": "Simple Asset Finder",
     "type": "strukt-module",
     "require": {
-        "strukt/fs": "1.0.0",
-        "strukt/contract": "v1.0.3-alpha",
+        "strukt/fs": "1.1.0",
+        "strukt/contract": "v1.0.4-alpha",
         "gumlet/php-image-resize": "dev-master",
         "erusev/parsedown": "^1.7",
         "league/html-to-markdown": "^5.0"
