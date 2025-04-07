@@ -11,18 +11,11 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 
 	public function setUp():void{
 
-		// $core = Registry::getSingleton();
-
-		// if(!$core->exists("strukt")){
-
-			$assetProvider = new AssetProvider();
-			$assetProvider->register();
-		// }
+		$assetProvider = new AssetProvider();
+		$assetProvider->register();
 	}
 
 	public function testAssetCoreFinder(){
-
-		// $core = Registry::getSingleton();
 
 		$provider = event("provider.asset")->exec();
 		$asset_ls = $provider->ls();
@@ -46,10 +39,6 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 	}
 
 	public function testAssetProvider(){
-
-		// $rootDir = Env::get("root_dir");
-
-		// $core = Registry::getSingleton();
 
 		$service = event("service.asset")->applyArgs([env("root_dir"), "package"])->exec();
 		$asset_ls = $service->ls();

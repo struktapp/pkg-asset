@@ -10,14 +10,16 @@ use Strukt\Dom\Node;
 
 use Strukt\Contract\HtmlQuery;
 
-/**
- * App\Helper\AbstractHtmlQuery
- */
 abstract class AbstractQuery implements HtmlQuery{
 
     protected $doc;
 
-    public function query(string $expr){
+    /**
+     * @param string $expr
+     * 
+     * @return \Strukt\Type\Str|string
+     */
+    public function query(string $expr):string|Str{
 
         $xpath = new \DOMXpath($this->doc);
         $elements = $xpath->query($expr);
@@ -29,7 +31,12 @@ abstract class AbstractQuery implements HtmlQuery{
         return $html;
     }
 
-    public function queryNodes(string $expr){
+    /**
+     * @param string $expr
+     * 
+     * @return \Strukt\Type\Arr
+     */
+    public function queryNodes(string $expr):Arr{
 
         $xpath = new \DOMXpath($this->doc);
         $elements = $xpath->query($expr);
@@ -41,7 +48,12 @@ abstract class AbstractQuery implements HtmlQuery{
         return Arr::create($els);
     }
 
-    public function queryAll(string $expr){
+    /**
+     * @param string $expr
+     * 
+     * @return \Strukt\Type\Arr
+     */
+    public function queryAll(string $expr):Arr{
 
         $domNodes = new Nodes($expr, $this);
 

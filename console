@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+require "bootstrap.php";
+
+$console = new Strukt\Console\Application();
+$console->add(new App\Command\Asset\MarkdownToHtml);
+exit($console->run($_SERVER["argv"]));

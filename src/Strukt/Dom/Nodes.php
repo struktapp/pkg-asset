@@ -10,6 +10,10 @@ class Nodes{
     private $el;
     private $nodes;
 
+    /**
+     * @param string $expr
+     * @param \Strukt\Contract\HtmlQuery $hq
+     */
     public function __construct(string $expr, HtmlQuery $hq){
 
     	$domNodes = $hq->queryNodes($expr)->yield();
@@ -21,7 +25,10 @@ class Nodes{
         $this->nodes = Arr::create($nodes);
     }
 
-    public function getNodes(){
+    /**
+     * @return \Strukt\Type\Arr
+     */
+    public function getNodes():Arr{
 
     	return $this->nodes;
     }

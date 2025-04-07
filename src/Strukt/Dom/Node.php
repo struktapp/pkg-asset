@@ -6,24 +6,39 @@ class Node{
 
     private $el;
 
+    /**
+     * @param \DomElement $el
+     */
     public function __construct(\DomElement $el){
 
         $this->el = $el;
     }
 
-    public function addAttr(string $attr, string $value){
+    /**
+     * @param string $attr
+     * @param string $value
+     * 
+     * @return static
+     */
+    public function addAttr(string $attr, string $value):static{
 
         $this->el->setAttribute($attr, $value);  
 
         return $this;      
     }
 
-    public function getNode(){
+    /**
+     * @return \Dom\Node|\DomElement
+     */
+    public function getNode():\Dom\Node|\DomElement{
 
         return $this->el;
     }
 
-    public function yield(){
+    /**
+     * @return string|false
+     */
+    public function yield():string|false{
 
         return $this->el->ownerDocument->saveXML($this->el);
     }

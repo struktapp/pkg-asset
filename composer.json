@@ -9,11 +9,15 @@
         "erusev/parsedown": "^1.7",
         "league/html-to-markdown": "^5.0"
     },
+    "require-dev":{
+        "strukt/console":"v1.0.0"
+    },
     "license": "MIT",
     "autoload": {
         "psr-0": {
             "Strukt\\": "src/"
-        }
+        },
+        "files": ["src/helpers.php"]
     },
     "autoload-dev":{
         "psr-0": {

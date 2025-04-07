@@ -11,6 +11,10 @@ class Asset{
 
 	private $files;
 
+	/**
+	 * @param string $base_dir -- root/base directory
+	 * @param string $dir_path -- relative/static directory
+	 */
 	public function __construct(string $base_dir, string $dir_path){
 
 		$abs_dir = sprintf("%s".DIRECTORY_SEPARATOR."%s", $base_dir, $dir_path);
@@ -42,17 +46,25 @@ class Asset{
 	}
 
 	/**
-	 * getObject
+	 * Get file details
+	 * 
+	 * @param string $filepath
+	 * 
+	 * @return \SplFileInfo
 	 */
-	public function getInfo($filepath){
+	public function getInfo($filepath):\SplFileInfo{
 
 		return $this->files[$filepath];
 	}
 
 	/**
-	 * getContents
+	 * Get contents
+	 * 
+	 * @param string $filepath
+	 * 
+	 * @return string
 	 */
-	public function get($filepath){
+	public function get(string $filepath):string{
 
 		if($this->exists($filepath))
 			return Fs::cat($this->files[$filepath]->getRealPath());
@@ -61,9 +73,13 @@ class Asset{
 	}
 
 	/**
-	 * list paths
+	 * List paths
+	 * 
+	 * @param ?string $pattern
+	 * 
+	 * @return array
 	 */
-	public function ls(?string $pattern = null){
+	public function ls(?string $pattern = null):array{
 
 		if(!is_null($pattern)){
 

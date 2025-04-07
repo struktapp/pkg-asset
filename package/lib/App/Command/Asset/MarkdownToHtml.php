@@ -22,6 +22,6 @@ class MarkdownToHtml extends \Strukt\Console\Command{
 
 		$dom = \Strukt\Html\Xpath::fromMarkFile($in->get("file"));
 
-		$out->add($dom->rawHTML());
+		$out->add($dom->rawHtml());
 	}
 }
