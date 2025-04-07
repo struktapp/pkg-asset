@@ -4,7 +4,7 @@
     "type": "strukt-module",
     "require": {
         "strukt/fs": "1.1.0",
-        "strukt/contract": "v1.0.4-alpha",
+        "strukt/contract": "v1.1.1-alpha",
         "gumlet/php-image-resize": "dev-master",
         "erusev/parsedown": "^1.7",
         "league/html-to-markdown": "^5.0"
@@ -13,6 +13,12 @@
     "autoload": {
         "psr-0": {
             "Strukt\\": "src/"
+        }
+    },
+    "autoload-dev":{
+        "psr-0": {
+            "Strukt\\":"package/src/",
+            "App\\":"package/lib/"
         }
     },
     "authors": [

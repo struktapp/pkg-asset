@@ -11,20 +11,21 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 
 	public function setUp():void{
 
-		$core = Registry::getSingleton();
+		// $core = Registry::getSingleton();
 
-		if(!$core->exists("strukt")){
+		// if(!$core->exists("strukt")){
 
 			$assetProvider = new AssetProvider();
 			$assetProvider->register();
-		}
+		// }
 	}
 
 	public function testAssetCoreFinder(){
 
-		$core = Registry::getSingleton();
+		// $core = Registry::getSingleton();
 
-		$asset_ls = $core->get("strukt.asset")->ls();
+		$provider = event("provider.asset")->exec();
+		$asset_ls = $provider->ls();
 
 		$ls = [
 			
@@ -46,17 +47,23 @@ class AssetProviderTest extends PHPUnit\Framework\TestCase{
 
 	public function testAssetProvider(){
 
-		$rootDir = Env::get("root_dir");
+		// $rootDir = Env::get("root_dir");
 
-		$core = Registry::getSingleton();
+		// $core = Registry::getSingleton();
 
-		$asset_ls = $core->get("strukt.service.asset")->apply($rootDir, "package")->exec()->ls();
+		$service = event("service.asset")->applyArgs([env("root_dir"), "package"])->exec();
+		$asset_ls = $service->ls();
 
-		$this->assertEquals($asset_ls, [
+		$ls = [
 
 	     	"/lib/App/Provider/Asset.php",
 	     	"/lib/App/Middleware/Asset.php",
-	     	"/lib/App/Command/Asset/MarkdownToHtml.php"
-	   	]);
+	     	"/lib/App/Command/Asset/MarkdownToHtml.php",
+	   	];
+
+		sort($asset_ls);
+		sort($ls);
+
+		$this->assertEquals($asset_ls, $ls);
 	}
 }

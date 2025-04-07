@@ -4,29 +4,28 @@ namespace App\Provider;
 
 use Strukt\Asset as AssetFinder;
 use Strukt\Event;
-use Strukt\Contract\Provider\AbstractProvider;
-use Strukt\Contract\Provider\ProviderInterface;
+use Strukt\Contract\ProviderInterface;
 use Strukt\Env;
 
 /**
 * @Name(strukt.asset)
 */
-class Asset extends AbstractProvider implements ProviderInterface{ 
+class Asset implements ProviderInterface{ 
 
 	public function __construct(){
 
-		$root_dir = Env::get("root_dir");
-		$static_dir = Env::get("rel_static_dir");
-
-		$this->core()->set("strukt.asset", new AssetFinder($root_dir, $static_dir));
+		event("provider.asset", fn()=>new AssetFinder(env("root_dir"), env("rel_static_dir")));
 	}
 
-	public function register(){
+	/**
+	* @return void
+	*/
+	public function register():void{
 
-		$this->core()->set("strukt.service.asset", new Event(function($root_dir, $static_dir){
+		event("service.asset", function($root_dir, $static_dir){
 
 			return new AssetFinder($root_dir, $static_dir);
-		}));	
+		});	
 	}
 }
 

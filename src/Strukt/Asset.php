@@ -9,6 +9,8 @@ use Strukt\Fs;
 
 class Asset{
 
+	private $files;
+
 	public function __construct(string $base_dir, string $dir_path){
 
 		$abs_dir = sprintf("%s".DIRECTORY_SEPARATOR."%s", $base_dir, $dir_path);
@@ -29,7 +31,12 @@ class Asset{
 		}
 	}
 
-	public function exists($filepath){
+	/**
+	 * @param string $filepath
+	 * 
+	 * @return bool
+	 */
+	public function exists(string $filepath):bool{
 
 		return array_key_exists($filepath, $this->files);
 	}
@@ -56,7 +63,7 @@ class Asset{
 	/**
 	 * list paths
 	 */
-	public function ls(string $pattern = null){
+	public function ls(?string $pattern = null){
 
 		if(!is_null($pattern)){
 

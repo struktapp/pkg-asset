@@ -2,17 +2,16 @@
 
 namespace App\Middleware;
 
+use Strukt\Contract\MiddlewareInterface;
 use Strukt\Contract\Http\ResponseInterface;
 use Strukt\Contract\Http\RequestInterface;
-use Strukt\Http\Response\Plain as Response;
-use Strukt\Contract\Middleware\MiddlewareInterface;
-use Strukt\Contract\Middleware\AbstractMiddleware;
+use Strukt\Http\Response\Plain as PlainResponse;
 
 /**
 * @Name(asset)
 * @Requires(strukt.asset)
 */
-class Asset extends AbstractMiddleware implements MiddlewareInterface{
+class Asset implements MiddlewareInterface{
 
 	private $finder;
 
@@ -21,9 +20,16 @@ class Asset extends AbstractMiddleware implements MiddlewareInterface{
 		$this->finder = $this->core()->get("strukt.asset");
 	}
 
+	/**
+	* @param \Strukt\Contract\Http\ResponseInterface $request
+	* @param \Strukt\Contract\Http\ResponseInterface $response
+	* @param callable $next
+	*
+	* @return \Strukt\Http\Response\Plain
+	*/
 	public function __invoke(RequestInterface $request, 
 								ResponseInterface $response, 
-								callable $next){
+								callable $next):PlainResponse{
 
 		$uri = $request->getRequestUri();
 
