@@ -4,7 +4,7 @@ Strukt Asset
 ## Installation
 
 ```sh
-composer require strukt/pkg-asset:v1.0.6-alpha
+composer require strukt/pkg-asset:v1.0.8-alpha
 ```
 
 If need be you need to install the middlewares, providers and commands:
