@@ -129,4 +129,12 @@ class PkgAsset implements \Strukt\Framework\Contract\Package{
 
 		//
 	}
+
+	/**
+	 * @return bool
+	 */
+	public function remove():bool{
+
+		raise("Unimplemented!");
+	}
 }
